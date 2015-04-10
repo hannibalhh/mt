@@ -1,10 +1,10 @@
 #include <math.h>
 #include <chplot.h>
-#define h 0.02
-#define x_End 1
+#define h 0.001
+#define x_End 0.2
 
 double Ableitung(double x, double y){
-	return -x/y;
+	return 10-500*y+5000*x;
 }
 
 int main(){
@@ -17,9 +17,7 @@ int main(){
 		y[i+1] = y[i] + h*Ableitung(x[i],y[i]);
 		x[i+1] = x[i] + h;
 	}
-
-	class CPlot plot = new CPlot;
+	class CPlot plot;
 	plot.data2D(x,y);
 	plot.plotting();
-  	getchar(); // needed for windows only 
 }
