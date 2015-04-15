@@ -1,0 +1,15 @@
+2a) DGLn
+y'' = 6 * (1-y)^2 * y' - y
+y1' = 6 * (1-y2)^2 * y1 - y2
+y2' = y1
+
+2b) Euler
+y_n+1 = 6 * (1-y2_n)^2 * y1_n - y2_n
+y_n+1 = y_n + h * y'(x_n,y_n)
+x_n+1 = x_n + h
+
+2c)
+k1 = h * y1'(x_n,y_n)
+k2 = h * y1'(x_n+h/2,y_n+k1/2)
+y_n+1 = y_n + k2
+x_n+1 = x_n + h

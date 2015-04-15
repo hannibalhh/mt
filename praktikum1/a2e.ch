@@ -51,42 +51,9 @@ void rkfunc(CPlot *plot){
 	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
 }
 
-void ieufunc(CPlot *plot){
-	int line_width = 1, datasetnum = 2; enum color_t color=LINE_COLOR_BLUE;
-	int steps = x_End/h;
-	int i;
-	double x[steps],y[steps];
-	x[0] = 0; 
-	y[0] = 1;
-	for(i=0;i<steps-1;i++){
-		x[i+1] = x[i] + h;
-		y[i+1] = (y[i] + (10 * h) + (5000 * h * x[i+1])) / (1+500*h);
-	}
-	plot->data2D(x,y);
-	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
-}
-
-void analyticfunc(CPlot *plot){
-	int line_width = 1, datasetnum = 3; enum color_t color=LINE_COLOR_BLACK;
-	int steps = x_End/h;
-	int i;
-	double x[steps],y[steps];
-	x[0] = 0; 
-	y[0] = 1;
-	for(i=0;i<steps-1;i++){
-		x[i+1] = x[i] + h;
-		y[i+1] = 10 * x[i] + pow(M_E,- 500 * x[i+1]);
-	}
-	plot->data2D(x,y);
-	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
-}
-
-
 int main(){	
 	CPlot plot;
 	eufunc(&plot);
 	rkfunc(&plot);
-	ieufunc(&plot);
-	analyticfunc(&plot);
 	plot.plotting();
 }
