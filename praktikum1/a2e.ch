@@ -1,7 +1,7 @@
 #include <math.h>
 #include <chplot.h>
 #define h 0.001
-#define x_End 0.05
+#define x_End 31
 
 enum color_t {
   LINE_COLOR_RED=1,
@@ -15,8 +15,8 @@ enum color_t {
   LINE_COLOR_YELLOW
 };
 
-double Ableitung(double x, double y){
-	return 10-500*y+5000*x;
+double Ableitung(double y1, double y2){
+	return 6 * (1-pow(y2,2)) * y1 - y2;
 }
 
 void eufunc(CPlot *plot){
@@ -27,33 +27,17 @@ void eufunc(CPlot *plot){
 	x[0] = 0; 
 	y[0] = 1;
 	for(i=0;i<steps-1;i++){
-		y[i+1] = y[i] + h*Ableitung(x[i],y[i]);
-		x[i+1] = x[i] + h;
+		y[i+1] = y[i] + h*Ableitung(y[i],x[i]);
+		x[i+1] = x[i] + h * y[i];
 	}
 	plot->data2D(x,y); 
 	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
 }
 
-void rkfunc(CPlot *plot){
-	int line_width = 1, datasetnum = 1; enum color_t color=LINE_COLOR_GREEN;
-	int steps = x_End/h;
-	int i;
-	double x[steps],y[steps];
-	x[0] = 0; 
-	y[0] = 1;
-	for(i=0;i<steps-1;i++){
-		double k1 = h * Ableitung(x[i],y[i]);
-		double k2 = h * Ableitung(x[i]+h/2,y[i]+k1/2);
-		y[i+1] = y[i] + k2;
-		x[i+1] = x[i] + h;
-	}
-	plot->data2D(x,y);
-	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
-}
 
 int main(){	
 	CPlot plot;
 	eufunc(&plot);
-	rkfunc(&plot);
+	//(&plot);
 	plot.plotting();
 }
