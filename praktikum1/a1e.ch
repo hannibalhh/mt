@@ -75,7 +75,7 @@ void analyticfunc(CPlot *plot){
 	y[0] = 1;
 	for(i=0;i<steps-1;i++){
 		x[i+1] = x[i] + h;
-		y[i+1] = 10 * x[i] + pow(2.71828,- 500 * x[i+1]);
+		y[i+1] = 10 * x[i] + pow(M_E,- 500 * x[i+1]);
 	}
 	plot->data2D(x,y);
 	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
