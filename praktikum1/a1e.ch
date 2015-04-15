@@ -1,7 +1,7 @@
 #include <math.h>
 #include <chplot.h>
-#define h 0.000001
-#define x_End 0.02
+#define h 0.001
+#define x_End 0.05
 
 enum color_t {
   LINE_COLOR_RED=1,
@@ -35,7 +35,7 @@ void eufunc(CPlot *plot){
 }
 
 void rkfunc(CPlot *plot){
-	int line_width = 1, datasetnum = 0; enum color_t color=LINE_COLOR_GREEN;
+	int line_width = 1, datasetnum = 1; enum color_t color=LINE_COLOR_GREEN;
 	int steps = x_End/h;
 	int i;
 	double x[steps],y[steps];
@@ -52,7 +52,7 @@ void rkfunc(CPlot *plot){
 }
 
 void ieufunc(CPlot *plot){
-	int line_width = 1, datasetnum = 0; enum color_t color=LINE_COLOR_BLUE;
+	int line_width = 1, datasetnum = 2; enum color_t color=LINE_COLOR_BLUE;
 	int steps = x_End/h;
 	int i;
 	double x[steps],y[steps];
@@ -60,7 +60,22 @@ void ieufunc(CPlot *plot){
 	y[0] = 1;
 	for(i=0;i<steps-1;i++){
 		x[i+1] = x[i] + h;
-		y[i+1] = (y[i] + 10 * h * 5000 * x[i+1]) / (1+500*h);
+		y[i+1] = (y[i] + (10 * h) * (5000 * x[i+1])) / (1+500*h);
+	}
+	plot->data2D(x,y);
+	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
+}
+
+void analyticfunc(CPlot *plot){
+	int line_width = 1, datasetnum = 3; enum color_t color=LINE_COLOR_BLACK;
+	int steps = x_End/h;
+	int i;
+	double x[steps],y[steps];
+	x[0] = 0; 
+	y[0] = 1;
+	for(i=0;i<steps-1;i++){
+		x[i+1] = x[i] + h;
+		y[i+1] = 10 * x[i] + pow(2.71828,- 500 * x[i+1]);
 	}
 	plot->data2D(x,y);
 	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
@@ -72,5 +87,6 @@ int main(){
 	eufunc(&plot);
 	rkfunc(&plot);
 	ieufunc(&plot);
+	analyticfunc(&plot);
 	plot.plotting();
 }
