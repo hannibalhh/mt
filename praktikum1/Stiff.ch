@@ -32,6 +32,7 @@ void eufunc(CPlot *plot){
 	}
 	plot->data2D(x,y); 
 	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
+	plot->legend("Euler", datasetnum);
 }
 
 void rkfunc(CPlot *plot){
@@ -49,6 +50,7 @@ void rkfunc(CPlot *plot){
 	}
 	plot->data2D(x,y);
 	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
+	plot->legend("RK", datasetnum);
 }
 
 void ieufunc(CPlot *plot){
@@ -64,6 +66,7 @@ void ieufunc(CPlot *plot){
 	}
 	plot->data2D(x,y);
 	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
+	plot->legend("Implicit Euler", datasetnum);
 }
 
 void analyticfunc(CPlot *plot){
@@ -79,6 +82,7 @@ void analyticfunc(CPlot *plot){
 	}
 	plot->data2D(x,y);
 	plot->plotType(PLOT_PLOTTYPE_LINES, datasetnum, color, line_width);
+	plot->legend("Analytic", datasetnum);
 }
 
 
