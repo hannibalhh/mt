@@ -111,6 +111,8 @@ rk22(CPlot *plot)
 	t[n+1] = t[n] + h;
   }
   plot->data2D(t, x);
+  plot->data2D(x, z);
+
 }
 
 
@@ -118,8 +120,8 @@ int
 main(void)
 {
   CPlot plot;
-  rk2(&plot);
-  //rk22(&plot);
+  //rk2(&plot);
+  rk22(&plot);
   plot.legend("1", 0);
   plot.legend("2", 1);
   plot.plotting();
