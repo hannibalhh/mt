@@ -1,2 +1,6 @@
 *.DS_STORE
 *.autosave
+*.aux
+*.log
+*.gz
+MDS_P1.pdf

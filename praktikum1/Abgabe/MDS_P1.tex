@@ -12,9 +12,11 @@
 
 \begin{center}
 \begin{LARGE}
-Praktikum 1\\
 Differentialgleichungen
 \end{LARGE}
+
+Modellierung Dynamischer Systeme: Praktikum 1
+
 \end{center}
 
 \section{Lösung  "`steifer Differentialgleichungen"' mit Euler/Runge-Kutta (RK 2. Ordng.)}
@@ -61,27 +63,27 @@ Die Implementierung ist in Stiff.ch zu finden.
 Bei einer Schrittweite von $h = 0.0001$ sind alle Verfahren ziemlich gut, dennoch ist der Euler am weitesten von der analytischen Funktion entfernt.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0001.png}
+\includegraphics[width=0.9\linewidth]{../screenshots/stiff0001.png}
 \end{figure}
 Bei einer Schrittweite von $h = 0.0001$ schwingt der Euler sehr stark, jedoch normalisiert sich die Darstellung mit steigendem X-Wert. Implizit Euler und RK sind gut.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0002.png}
+\includegraphics[width=0.9\linewidth]{../screenshots/stiff0002.png}
 \end{figure}
 Bei einer Schrittweite von $h = 0.0002$ zeigt Euler keine Kurve mehr, RK und Implizit Euler zeigen eine gute Darstellung.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0003.png}
+\includegraphics[width=0.9\linewidth]{../screenshots/stiff0003.png}
 \end{figure}
 Bei einer Schrittweite von $h = 0.0003$ schwingt der Euler sehr stark. RK und Implizit Euler zeigen eine gute Darstellung.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0004.png}
+\includegraphics[width=0.9\linewidth]{../screenshots/stiff0004.png}
 \end{figure}
 Bei einer Schrittweite von $h = 0.0004$ schwingt der Euler kontinuerlich, RK zeigt nur noch eine Gerade. Implizit Euler zeigt eine gute Darstellung.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0005.png}
+\includegraphics[width=0.9\linewidth]{../screenshots/stiff0005.png}
 \end{figure}
 Bei $h = 0.0005$ werden die Y-Werte des RK sehr hoch.
 
@@ -155,16 +157,46 @@ k_{2z} = h * [(x + \frac{k_{1x}}{2}) * (y + \frac{k_{1_y}}{2}) - 2,67 * (z + \fr
 Geben Sie im 1. Plot die Funktion x(t) aus:
 Geben Sie im 2. Plot z(x) aus.}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../screenshots/lorenz.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../screenshots/lorenz000001.png}
+\end{figure}
+
+
 \subsection{Realisieren Sie das Differentialgleichungssystem mit MATLab/Simulink}
-\begin{figure}[h]
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.9\linewidth]{../screenshots/3}
 \end{figure}
 
-\begin{center}
-\begin{large}
-Versuchsdurchführung
-\end{large}
-\end{center}
+Die Schmetterlingsdarstellung über den 3D Plotter, sieht wie folgt aus:
+
+\begin{align}
+plot3(x,y,z)
+\end{align}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../screenshots/lorenz_matlab.png}
+\end{figure}
+
+Wenn für die 2. Gleichung der Wert 40 (rot) in (40.000001) geändert wird (blau) und
+die X-Werte in Relation zur Zeit jeweils geplottet werden, zeigt sich bis zu einem bestimmten X-wert (ca. 20) eine vollständige Überlagerung, danach laufen die Darstellungen  auseinander.
+
+\begin{align}
+plot(t,x,'blue')
+\\hold \: on \nonumber
+\\plot(t1,x1,'red') \nonumber
+\end{align}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../screenshots/lorenz_t.png}
+\end{figure}
 
 \end{document}
