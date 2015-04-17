@@ -55,6 +55,8 @@ y_{n+1} = \frac{(y_n + 10 * h + 5000 * h * x_n+1)}{ (1+500*h)}
 \subsection{Schreiben Sie ein Programm "`Stiff.ch"', welches die DGL mit allen Verfahren
 löst und zusammen mit der analytischen Lösung in einem Plot anzeigt.}
 
+Siehe Stiff.ch.
+
 \begin{center}
 \begin{large}
 Versuchsdurchführung
@@ -68,9 +70,13 @@ Versuchsdurchführung
 \centering
 \includegraphics[width=0.9\linewidth]{../screenshots/2}
 \end{figure}
+
 \subsection{Geben Sie die DGL 2. Ordnung als 2 DGLn 1. Ordnung an.}
+
 \subsection{Geben Sie die Iterationsgleichungen für das Euler-Verfahren an.}
+
 \subsection{Geben Sie die Iterationsgleichungen für das RK2-Verfahren an.}
+
 \subsection{Schreiben Sie ein Programm "VanDerPol.ch", welches die DGL mit beiden
 Verfahren löst und in einem Plot anzeigt.}
 
@@ -82,9 +88,21 @@ Versuchsdurchführung
 
 \section{Lösung eines Differentialgleichungssystems (Lorenz-Attraktor) mit RK 2}
 \subsection{Geben Sie die Iterationsgleichungen für das RK2-Verfahren an.}
+\begin{subequations}
+\begin{align}
+k_{1x} = -10 * h * (x_n - y_n)\\
+k_{1y} = h * [(40-z_n) * x_n - y_n]\\
+k_{1z} = h * [(x_n * y_n) - (2,67 * z_n)]\\
+k_{2x} = -10 * h * [(x_n +\frac{k_{1x}}{2}) - (y_n + \frac{k_{1y}}{2})]\\
+k_{2y} = h * [(40 - z + \frac{k_{1z}}{2}) * (x + \frac{k_{1x}}{2}) - (y_n + \frac{k_{1y}}{2})]\\
+k_{2z} = h * [(x + \frac{k_{1x}}{2}) * (y + \frac{k_{1_y}}{2}) - 2,67 * (z + \frac{k_{1z}}{2})]
+\end{align}
+\end{subequations}
+
 \subsection{Schreiben Sie ein Programm "Lorenz.ch", welches das DGL-System löst.
 Geben Sie im 1. Plot die Funktion x(t) aus:
 Geben Sie im 2. Plot z(x) aus.}
+
 \subsection{Realisieren Sie das Differentialgleichungssystem mit MATLab/Simulink}
 \begin{figure}[h]
 \centering
