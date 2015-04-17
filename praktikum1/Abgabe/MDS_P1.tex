@@ -24,8 +24,34 @@ Differentialgleichungen
 \includegraphics[width=0.9\linewidth]{../screenshots/1}
 \end{figure}
 \subsection{Geben Sie die Iterationsgleichungen für das Euler-Verfahren an.}
+\begin{subequations}
+\begin{align}
+y_{n+1} = y_n + h * y'(x_n,y_n)\\
+x_{n+1} = x_n + h
+\end{align}
+\end{subequations}
+
 \subsection{Geben Sie die Iterationsgleichungen für das RK2-Verfahren an.}
+\begin{subequations}
+\begin{align}
+k1 = h * y'(x_n,y_n)\\
+k2 = h * y'(x_n + \frac{h}{2},y_n + \frac{k1}{2})\\
+y_{n+1} = y_n + k2\\
+x_{n+1} = x_n + h
+\end{align}
+\end{subequations}
+
 \subsection{Geben Sie die Iterationsgleichungen für das implizite Euler-Verfahren an.}
+\begin{subequations}
+\begin{align}
+y_{n+1} = y_n + h * (10 - 500 * y_{n+1} + 5000 * x_{n+1})\\
+y_{n+1} = y_n + 10 * h - 500 * y_{n+1} * h + 5000 * x_{n+1} * h)\\
+y_{n+1} + 500 * y_{n+1} * h = y_n + 10 * h + 5000 * x_{n+1} * h)\\
+y_{n+1} * (1+ 500 * h) = y_n + 10 * h + 5000 * x_{n+1} * h)\\
+y_{n+1} = \frac{(y_n + 10 * h + 5000 * h * x_n+1)}{ (1+500*h)}
+\end{align}
+\end{subequations}
+
 \subsection{Schreiben Sie ein Programm "`Stiff.ch"', welches die DGL mit allen Verfahren
 löst und zusammen mit der analytischen Lösung in einem Plot anzeigt.}
 
