@@ -4,8 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{amssymb}
 \usepackage{float}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \renewcommand\thesubsection{\alph{subsection}}
 \begin{document}
@@ -20,70 +20,22 @@ Differentialgleichungen
 \section{Lösung  "`steifer Differentialgleichungen"' mit Euler/Runge-Kutta (RK 2. Ordng.)}
 
 \subsection{Geben Sie das Analogrechner-/Simulink-Schaltbild an.}
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.9\linewidth]{../screenshots/1}
 \end{figure}
 \subsection{Geben Sie die Iterationsgleichungen für das Euler-Verfahren an.}
-\begin{subequations}
-\begin{align}
-y_{n+1} = y_n + h * y'(x_n,y_n)\\
-x_{n+1} = x_n + h
-\end{align}
-\end{subequations}
-
 \subsection{Geben Sie die Iterationsgleichungen für das RK2-Verfahren an.}
-\begin{subequations}
-\begin{align}
-k1 = h * y'(x_n,y_n)\\
-k2 = h * y'(x_n + \frac{h}{2},y_n + \frac{k1}{2})\\
-y_{n+1} = y_n + k2\\
-x_{n+1} = x_n + h
-\end{align}
-\end{subequations}
-
 \subsection{Geben Sie die Iterationsgleichungen für das implizite Euler-Verfahren an.}
-\begin{subequations}
-\begin{align}
-y_{n+1} = y_n + h * (10 - 500 * y_{n+1} + 5000 * x_{n+1})\\
-y_{n+1} = y_n + 10 * h - 500 * y_{n+1} * h + 5000 * x_{n+1} * h)\\
-y_{n+1} + 500 * y_{n+1} * h = y_n + 10 * h + 5000 * x_{n+1} * h)\\
-y_{n+1} * (1+ 500 * h) = y_n + 10 * h + 5000 * x_{n+1} * h)\\
-y_{n+1} = \frac{(y_n + 10 * h + 5000 * h * x_n+1)}{ (1+500*h)}
-\end{align}
-\end{subequations}
-
 \subsection{Schreiben Sie ein Programm "`Stiff.ch"', welches die DGL mit allen Verfahren
 löst und zusammen mit der analytischen Lösung in einem Plot anzeigt.}
 
-Die Implementierung ist in Stiff.ch zu finden.
+\begin{center}
+\begin{large}
+Versuchsdurchführung
+\end{large}
+\end{center}
 
-Bei einer Schrittweite von $h = 0.0001$ sind alle Verfahren ziemlich gut, dennoch ist der Euler am weitesten von der analytischen Funktion entfernt.
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0001.png}
-\end{figure}
-Bei einer Schrittweite von $h = 0.0001$ schwingt der Euler sehr stark, jedoch normalisiert sich die Darstellung mit steigendem X-Wert. Implizit Euler und RK sind gut.
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0002.png}
-\end{figure}
-Bei einer Schrittweite von $h = 0.0002$ zeigt Euler keine Kurve mehr, RK und Implizit Euler zeigen eine gute Darstellung.
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0003.png}
-\end{figure}
-Bei einer Schrittweite von $h = 0.0003$ schwingt der Euler sehr stark. RK und Implizit Euler zeigen eine gute Darstellung.
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0004.png}
-\end{figure}
-Bei einer Schrittweite von $h = 0.0004$ schwingt der Euler kontinuerlich, RK zeigt nur noch eine Gerade. Implizit Euler zeigt eine gute Darstellung.
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\linewidth]{../screenshots/stiff 0005.png}
-\end{figure}
-Bei $h = 0.0005$ werden die Y-Werte des RK sehr hoch.
 
 \section{Lösung einer (nichtlinearen) DGL 2. Ordnung (Van-der-Pol-DGL) mit RK 2}
 \subsection{Geben Sie das Analogrechner-/Simulink-Schaltbild an.}
@@ -125,7 +77,13 @@ k1 = h * y1'(y1_n, y2_n);
 \subsection{Schreiben Sie ein Programm "VanDerPol.ch", welches die DGL mit beiden
 Verfahren löst und in einem Plot anzeigt.}
 
-Die Implementierung ist in VanDerPol.ch zu finden.
+Siehe VanDerPol.ch.
+
+\section{Lösung eines Differentialgleichungssystems (Lorenz-Attraktor) mit RK 2}
+\subsection{Geben Sie die Iterationsgleichungen für das RK2-Verfahren an.}
+\subsection{Schreiben Sie ein Programm "Lorenz.ch", welches das DGL-System löst.
+Geben Sie im 1. Plot die Funktion x(t) aus:
+Geben Sie im 2. Plot z(x) aus.}
 
 Der Plot zeigt bei einer Schrittweite von $h = 0.001$ bei Euler und RK eine sehr genaue Darstellung.
 
@@ -138,13 +96,6 @@ Bei einer Schrittweite von $h = 0.2$ sind Euler und RK sehr ungenau, wobei RK no
 \centering
 \includegraphics[width=0.9\linewidth]{../screenshots/van02.png}
 \end{figure}
-
-\section{Lösung eines Differentialgleichungssystems (Lorenz-Attraktor) mit RK 2}
-\subsection{Geben Sie die Iterationsgleichungen für das RK2-Verfahren an.}
-\subsection{Schreiben Sie ein Programm "Lorenz.ch", welches das DGL-System löst.
-Geben Sie im 1. Plot die Funktion x(t) aus:
-Geben Sie im 2. Plot z(x) aus.}
-
 
 \subsection{Realisieren Sie das Differentialgleichungssystem mit MATLab/Simulink}
 \begin{figure}[h]
