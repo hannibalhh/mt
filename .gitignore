@@ -4,3 +4,5 @@
 *.log
 *.gz
 MDS_P1.pdf
+*.mexmaci64
+*/slprj/*
