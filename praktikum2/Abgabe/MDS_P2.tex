@@ -111,7 +111,7 @@ Die Schaltung ändert sich gegenüber der Erdumkreisung nicht.
 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=1\textwidth]{../aufgabe12/screens/simulink_mond.png}
+		\includegraphics[width=1\textwidth]{../aufgabe12/screens/2.png}
 		\caption{Erd- und Mondumkreisung des Satelliten}
 	\end{figure}
 
@@ -134,18 +134,12 @@ function \:  a = Gravitation(x_0)
 
 Bei einer Startgeschwindigkeit von $v0 = 10960 m / s$ und $\theta = 25^\circ$ ergibt sich eine achtförmige Umkreisung um Mond und Erde.
 
- 	\begin{figure}[H]
- 		\centering
- 		\includegraphics[width=0.5\textwidth]{../aufgabe12/screens/2.png}
- 		\caption{Erdumkreisung des Satelliten}
- 	\end{figure}
-
 \section{Crazy Pendulum}
 
 	\begin{figure}[H]
  		\centering
  		\includegraphics[width=1\textwidth]{../aufgabe2/Freikoerper.jpg}
- 		\caption{Schaltbild Crazy Pendulum}
+ 		\caption{Freikörperbild des Pendels}
  	\end{figure}
 
  	\begin{figure}[H]
@@ -178,5 +172,57 @@ Bei einer Startgeschwindigkeit von $v0 = 10960 m / s$ und $\theta = 25^\circ$ er
  	 	\end{figure}
 
 \section{Schwingungsgedämpfter Tisch}
+
+\begin{figure}[H]
+\begin{equation}
+	F_{D_x} = \dot{x} * d
+\end{equation}
+\caption{Kraft - Dämpfer}
+\end{figure}
+
+\begin{figure}[H]
+\begin{equation}
+	F_{F_x} = -c * (x_x - u - l_x)
+\end{equation}
+\caption{Kraft - Feder}
+\end{figure}
+
+\begin{figure}[H]
+\begin{subequations}
+\begin{align}
+	m_x * \ddot{x}_x = 2 * F_{F_x} - 2 * F_{D_x} - F_{G_x} \\
+	\iff \ddot{x}_x = \frac{2}{m} (F_{F_x} - D_{D_x}) - g
+\end{align}
+\end{subequations}
+\caption{Berechnung der Differentialgleichungen der Massen}
+\end{figure}
+
+\begin{figure}[H]
+\begin{subequations}
+\begin{align}
+	0 = \frac{2}{m} (-c * (x_0 - L_0)) - g \\
+	\frac{m * g}{-2 * c} + L_0 = x_0
+\end{align}
+\end{subequations}
+\caption{Berechnung der Ruhelagen der Massen}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{../aufgabe3/screens/tisch}
+	\caption{Schaltbild schwingungsgedämpfter Tisch}
+  \end{figure}
+
+  \begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{../aufgabe3/screens/x1_t}
+	\caption{Graph von $x_1(t)$}
+  \end{figure}
+
+  \begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{../aufgabe3/screens/x2_t}
+	\caption{Graph von $x_2(t)$}
+  \end{figure}
 
 \end{document}
