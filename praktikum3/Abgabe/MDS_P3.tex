@@ -19,6 +19,66 @@ Johannes Reidl, Sigurd Sippel
 
 \section{Start einer zweistufigen Rakete}
 
+	\begin{figure}[H]
+ 	 		\centering
+ 	 		\includegraphics[width=1\textwidth]{../aufgabe1/screens/rocket_outer.png}
+ 	 		\caption{Simulink Stateflow}
+ 	 	\end{figure}
+
+	\begin{figure}[H]
+ 	 		\centering
+ 	 		\includegraphics[width=1\textwidth]{../aufgabe1/screens/rocket_para.png}
+ 	 		\caption{Simulink Stateflow}
+ 	 	\end{figure}
+
+		\begin{figure}[H]
+ 	 		\centering
+ 	 		\includegraphics[width=1\textwidth]{../aufgabe1/screens/rocket_state.png}
+ 	 		\caption{Simulink States}
+ 	 	\end{figure}
+ 	 	
+ 	 	\begin{align}
+ 	 	Acc1 = 
+ 	 	\\mR = m1 + m2 \nonumber
+ 	 	\\r1 = x1 + rE \nonumber
+ 	 	\\Fs1 = G * (mE * mR) / (r1*r1) \nonumber
+ 	 	\\Schubkraft_1 = Durchsatz_1 * SchubProDurchsatz \nonumber
+ 	 	\\a = (Schubkraft_1 - Fs1) / (m1+m2) \nonumber
+ 	 	\\a1 = a \nonumber
+ 	 	\\a2 = a \nonumber
+ 	 	\end{align}
+ 	 	
+ 	 	\begin{align}
+ 	 	Acc2 =	 	 
+ 	 	\\r1 = x1 + rE \nonumber
+ 	 	\\Fs1 = G * (mE * m1) / (r1*r1) \nonumber
+ 	 	\\r2 = x2 + rE \nonumber
+ 	 	\\Fs2 = G * (mE * m2) / (r2*r2) \nonumber
+ 	 	\\Schubkraft_2 = Durchsatz_2 * SchubProDurchsatz \nonumber
+ 	 	\\a1 = - Fs1 / m1 \nonumber
+ 	 	\\a2 = (Schubkraft_2- Fs2) / m2 \nonumber
+ 	 	\end{align}
+
+\begin{align}
+Acc3 =
+\\r1 = x1 + rE \nonumber
+\\Fs1 = G * (mE * m1) / (r1*r1) \nonumber
+\\r2 = x2 + rE \nonumber
+\\Fs2 = G * (mE * m2) / (r2*r2) \nonumber
+\\a1 = - Fs1 / m1 \nonumber
+\\a2 = - Fs2 / m2 \nonumber
+\end{align}
+
+		 		\begin{figure}[H]
+	 	 	 	 		\centering
+	 	 	 	 		\includegraphics[width=1\textwidth]{../aufgabe1/screens/geschwindigkeiten.png}
+	 	 	 	 		\caption{Geschwindigkeiten}
+	 	 	 	 	\end{figure}
+		 		\begin{figure}[H]
+		 	 	 	 		\centering
+		 	 	 	 		\includegraphics[width=1\textwidth]{../aufgabe1/screens/hoehen.png}
+		 	 	 	 		\caption{Höhen}
+		 	 	 	 	\end{figure}
 \section{Simulation eines schiefen Flippers}
 
 \end{document}
