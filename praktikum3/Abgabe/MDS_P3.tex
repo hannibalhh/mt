@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{listings}
 \renewcommand\thesubsection{\alph{subsection}}
 \begin{document}
 
@@ -80,5 +81,97 @@ Acc3 =
 		 	 	 	 		\caption{Höhen}
 		 	 	 	 	\end{figure}
 \section{Simulation eines schiefen Flippers}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{../aufgabe2/screens/Flipper}
+	 	 	 	 		\caption{Stateflow Flipper}
+\end{figure}
+
+\begin{figure}[H]
+\begin{lstlisting}
+function Init
+
+x1 = [4; 5];
+v1 = [0; 0];
+
+p1 = [0; 5];
+p2 = [5; 0];
+p3 = [9; 0];
+p4 = [10; 7];
+Hnd = [6; 2.5];
+
+t1 = (p2 - p1)/norm(p2 - p1);
+n1 = [-t1(2); t1(1)];
+
+t2 = (p3 - p2)/norm(p3 - p2);
+n2 = [-t2(2); t2(1)];
+
+t3 = (p4 - p3)/norm(p4 - p3);
+n3 = [-t3(2); t3(1)];
+\end{lstlisting}
+\caption{Init Funktion}
+\end{figure}
+
+\begin{figure}[H]
+\begin{lstlisting}
+function a = Acc
+ 
+a = [0; -1];
+\end{lstlisting}
+\caption{Beschleunigung}
+\end{figure}
+
+\begin{figure}[H]
+\begin{lstlisting}
+function k = WandLKontakt
+k = false;
+if (abs((x1 - p1)' * n1) <= R && (v1' * n1) < 0)
+    k = true;
+end
+\end{lstlisting}
+\caption{Wand Links Kontakt}
+\end{figure}
+
+\begin{figure}[H]
+\begin{lstlisting}
+function WandLRefl
+
+vt = v1' * t1;
+vn = v1' * n1;
+
+v1 = vt * t1 - vn * n1;
+\end{lstlisting}
+\caption{Wand Links Reflektion}
+\end{figure}
+
+\begin{figure}[H]
+\begin{lstlisting}
+function k = HndKontakt
+k = false;
+
+n = (x1 - Hnd) / norm(x1 - Hnd);
+t = [-n(2); n(1)];
+
+if ( norm(Hnd - x1) <= RHnd + R && (v1' * n) < 0)
+    k = true;
+end
+\end{lstlisting}
+\caption{Hindernis Kontakt}
+\end{figure}
+
+\begin{figure}[H]
+\begin{lstlisting}
+function HndRefl
+
+n = (Hnd - x1) / norm(Hnd - x1);
+t = [n(2); -n(1)];
+
+vt = v1' * t;
+vn = v1' * n;
+
+v1 = vt * t - vn * n;
+\end{lstlisting}
+\caption{Hindernis Reflektion}
+\end{figure}
 
 \end{document}
