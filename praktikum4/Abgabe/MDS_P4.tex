@@ -1,0 +1,53 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{listings}
+\renewcommand\thesubsection{\alph{subsection}}
+\begin{document}
+
+\begin{center}
+Regelung dynamischer Systeme: Praktikum 4
+
+Johannes Reidl, Sigurd Sippel
+\end{center}
+
+\section{Schwebekugel}
+\subsection{Bestimmung von $i_0$ und  $u_o$ im Arbeitspunkt}
+\begin{figure}[H]
+  \begin{align}
+	  m\ddot{x} = mg - C * (\frac{i}{x})^2 \nonumber \\
+	  \frac{m\ddot{x} - mg}{-c} = (\frac{i}{x})^2 \nonumber \\
+	  \sqrt{\frac{m* (\ddot{x} - g)}{-c} * x} = i \nonumber \\
+	  \sqrt{\frac{0,025kg * -9,81\frac{m}{s^2}}{-5 * 10^{-6}\frac{Nm^2}{A^2}}} * 0,015m = i \nonumber \\
+	  \underline{\underline{i = 3,322A}} \nonumber
+  \end{align}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{align}
+	  u(t) = R * i(t) + L * \underbrace{\frac{di(t)}{dt}}_\text{= 0, da Kugel in Ruhe} \nonumber \\
+	  u(t) = 3\frac{V}{A} * 3,322A = \underline{\underline{9,966V}} \nonumber
+  \end{align}
+\end{figure}
+\subsection{Strukturbilder der DGLn}
+
+
+\subsection{Linearisierung}
+
+
+\subsection{Normieren der linearisierten DGLn auf SI-Größen}
+
+
+\subsection{Übertragungsfunktionen}
+
+
+\subsection{Gesamtübertragungsfunktion der Regelstrecke}
+
+
+\end{document}
